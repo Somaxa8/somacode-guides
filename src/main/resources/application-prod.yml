@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/templatedb
+    url: jdbc:postgresql://localhost:5432/guidesdb
     password: 1234
   h2:
     console:
@@ -13,7 +13,7 @@ server:
 
 custom:
   mock: false
-  username: admin@template.com
+  username: admin@somacode.com
   password: 1234
   version: 1.0
   email-enabled: false

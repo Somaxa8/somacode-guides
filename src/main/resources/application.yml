@@ -1,16 +1,16 @@
 spring:
   application:
-    name: template
+    name: somacode-guides
   profiles:
     active:
   datasource:
   # H2
-    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;IGNORECASE=TRUE;DATABASE_TO_LOWER=TRUE;
-    username: root
-    # Postgres
-#    url: jdbc:postgresql://localhost:5432/templatedb
-#    username: postgres
-#    password: 1234
+#    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;IGNORECASE=TRUE;DATABASE_TO_LOWER=TRUE;
+#    username: root
+  # Postgres
+    url: jdbc:postgresql://localhost:5432/guidesdb
+    username: postgres
+    password: 1234
   h2:
     console:
       enabled: true
@@ -52,7 +52,7 @@ server:
 
 custom:
   mock: true
-  username: admin@template.com
+  username: admin@somacode.com
   password: 1234
   version: 1.0
   email-enabled: false
