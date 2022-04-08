@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mercurio | Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+
+    <br>
+    <br>
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h2 class="text-center">Iniciar sesión</h2>
+            <form id="login" th:action="@{/login}" method="post" data-toggle="validator">
+                <div class="form-group has-feedback">
+                    <input class="form-control" id="username" placeholder="Email" name="username" type="text" value="" autofocus>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group has-feedback">
+                    <input class="form-control" id="password" placeholder="Contraseña" name="password" type="password" value="">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                    Nombre de usuario y/o contraseña incorrecto
+                </div>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Acceder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

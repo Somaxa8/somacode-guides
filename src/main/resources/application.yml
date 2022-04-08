@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: template
+  profiles:
+    active:
+  datasource:
+  # H2
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;IGNORECASE=TRUE;DATABASE_TO_LOWER=TRUE;
+    username: root
+    # Postgres
+#    url: jdbc:postgresql://localhost:5432/templatedb
+#    username: postgres
+#    password: 1234
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 256MB
+      max-request-size: 256MB
+  flyway:
+    enabled: false # si se usa H2 (o la base de datos está vacía) hay que poner el enabled a false, por que la bbdd es nueva
+    locations: classpath:/config/flyway
+    baselineOnMigrate: true
+    baselineVersion: 0
+  jackson:
+    default-property-inclusion: non_null
+    mapper:
+      default-view-inclusion: true
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+      date: yyyy-MM-dd
+      time: HH:mm:ss
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: trace
+
+server:
+  port: 8080
+
+custom:
+  mock: true
+  username: admin@template.com
+  password: 1234
+  version: 1.0
+  email-enabled: false
+  my-secret-token: my-secret-token
+  access-token-validity: 50000
+  refresh-token-validity: 50000
+  base-url: localhost:8080
+  protocol: http

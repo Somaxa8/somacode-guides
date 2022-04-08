@@ -1,0 +1,22 @@
+task buildDocker(dependsOn: 'build') {
+    doLast {
+
+        exec {
+            commandLine 'docker', 'build', '-f', 'gradle/Dockerfile', '-t', 'template', 'build/libs/'
+        }
+
+        def springProfile = 'SPRING_PROFILES_ACTIVE=' + String.valueOf(profile)
+        def pathStorage = '/root/template/storage/:/static/storage'
+
+        exec {
+            commandLine 'docker', 'run', '-d',
+                    '--name', 'template',
+                    '--network', 'template',
+                    '-p', '8080:8080',
+                    '-v', pathStorage,
+                    '--restart', 'always',
+                    '-e', springProfile, 'template'
+        }
+
+    }
+}

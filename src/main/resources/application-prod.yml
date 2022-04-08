@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/templatedb
+    password: 1234
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+server:
+  port: 8080
+
+custom:
+  mock: false
+  username: admin@template.com
+  password: 1234
+  version: 1.0
+  email-enabled: false
+  my-secret-token: my-secret-token
+  access-token-validity: 50000
+  refresh-token-validity: 50000
+  base-url: tamplateapi.com
+  protocol: https
