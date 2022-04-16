@@ -1,5 +1,6 @@
 package com.somacode.guides.entity
 
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -11,7 +12,7 @@ class Game(
         var names: String? = null,
         var developer: String? = null,
         var distributor: String? = null,
-        var lauching: String? = null,
+        var launching: LocalDate? = null,
         @ManyToOne
         var logo: Resource? = null,
         @OneToMany(mappedBy = "game")
